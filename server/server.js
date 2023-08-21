@@ -17,10 +17,12 @@ const io = require('socket.io')(http);
 
 
 
+// const originalPath = path.join(__dirname, '../client/index.html');
+// console.log('Original path:', originalPath);
 
 //route
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/index.html'))
+    res.sendFile(path.join(__dirname, '../client/index.html'))
 })
 
 // create a connection from the server side
