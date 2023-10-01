@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .page-header {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  .label-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .chat-window {
+    background-color: #e4f0f8;
+    height: 320px;
+    width: 70%;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  .input-field {
+    width: 70%;
+    height: 30px;
+     /* overflow-y: scroll; */ 
+    padding: 10px;
+    border: 1px solid hsl(0, 5%, 84%);
+  }
+
+  .send-button {
+    background-color: #8fe4f9;
+    padding: 10px;
+    width: 20%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .container {
+      min-height: 400px;
+      height: 0 auto;
+    }
+    .chat-window {
+      width: 80%;
+    }
+    .input-field {
+      width: 80%;
+    }
+    .send-button {
+      width: 20%;
+    }
+  }

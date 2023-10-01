@@ -1,0 +1,2 @@
+redis database name: redis
+to clear the redis: sudo docker exec -it redis redis-cli FLUSHALL

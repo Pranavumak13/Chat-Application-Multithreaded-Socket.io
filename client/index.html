@@ -11,70 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Poppins:wght@300&display=swap"
       rel="stylesheet"
     />
-    <!-- <link rel="stylesheet" href="styles.css" /> -->
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
-
-      .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        height: 100vh;
-      }
-
-      .page-header {
-        padding: 10px;
-        text-align: center;
-        font-size: 1.5em;
-      }
-
-      .label-header {
-        font-size: 1.2rem;
-        font-weight: bold;
-      }
-
-      .chat-window {
-        background-color: #e4f0f8;
-        height: 350px;
-        width: 70%;
-        overflow-y: scroll;
-        border: 1px solid #ccc;
-        padding: 10px;
-      }
-      .input-field {
-        width: 71%;
-        padding: 10px;
-        border: 1px solid hsl(0, 5%, 84%);
-      }
-
-      .send-button {
-        background-color: #8fe4f9;
-        padding: 10px;
-        width: 20%;
-      }
-
-      @media only screen and (max-width: 768px) {
-        .container {
-          min-height: 400px;
-          height: 0 auto;
-        }
-        .chat-window {
-          width: 80%;
-        }
-        .input-field {
-          width: 80%;
-        }
-        .send-button {
-          width: 20%;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div class="container">
@@ -88,63 +25,11 @@
         placeholder="Enter your message"
       />
       <input type="submit" hidden />
-      <button type="submit" id="send" class="send-button">Send</button>
+      <button type="submit" id="send-message" class="send-button">Send</button>
     </div>
 
     <script src="socket.io/socket.io.js"></script>
-    <script>
-      const socket = io();
-
-      // client connected to server
-      socket.on("connect", () => {
-        console.log(socket.id);
-      });
-
-      // msg from client
-      const sendButton = document.getElementById("send");
-      const messageInput = document.getElementById("message");
-
-      sendButton.addEventListener("click", () => {
-        sendMessage();
-      });
-
-      // Detect Enter key press in the message input field
-      messageInput.addEventListener("keydown", (event) => {
-        if (event.keyCode === 13) {
-          // Check if the pressed key is Enter (key code 13)
-          event.preventDefault(); // Prevent the default Enter key behavior (form submission)
-          sendMessage();
-        }
-      });
-
-      function sendMessage() {
-        // Get the message from the input field
-        const message = messageInput.value.trim(); // Trim any leading/trailing whitespace
-
-        // Check if the message is not empty
-        if (message !== "") {
-          // Send the message to the server
-          socket.emit("message", message);
-
-          // Clear the input field
-          messageInput.value = "";
-        }
-      }
-
-      socket.on("broadcastMessage", (msg) => {
-        // Display the broadcasted message in the UI
-        const messagesDiv = document.getElementById("messages");
-        const messageElement = document.createElement("p");
-        messageElement.textContent = "Message: " + msg;
-        messagesDiv.appendChild(messageElement);
-      });
-
-      // msg from server | Handles multiple clients
-      const listener = (eventName, ...args) => {
-        console.log(eventName, args);
-      };
-
-      socket.onAny(listener);
-    </script>
+    <script src="./script.js"></script>
+    
   </body>
 </html>

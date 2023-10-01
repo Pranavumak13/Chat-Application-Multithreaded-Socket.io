@@ -11,3 +11,6 @@
 - Mobile View:
 
   <img src="https://github.com/Pranavumak13/Socket_distributed_system/blob/main/src/images/Mobile%20View.jpg" alt="Mobile View" height="400">
+
+
+Redis is used to store the messages.
