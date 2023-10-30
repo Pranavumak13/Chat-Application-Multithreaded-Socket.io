@@ -1,6 +1,6 @@
 const express = require('express');
 const http = require('http');
-const port = 8001;
+const port = 3000;
 
 const path = require('path');
 const cluster = require('cluster'); // cluster module for multi-threading
