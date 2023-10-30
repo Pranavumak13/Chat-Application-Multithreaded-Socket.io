@@ -14,3 +14,22 @@
 
 
 Redis is used to store the messages.
+
+
+## How to run the application
+
+- Clone the repository
+- Install the dependencies using `npm install`
+- First, start the redis server using `redis-server`
+- Then, run the server using `npm start`
+- Open the application in the browser using `localhost:3000`
+- To run the application on a different port, use `PORT=3001 npm start`
+
+## How to use the application
+
+- You can start the group convserion session directly by accessing the application using `localhost:3000`
+
+## To remove the redis data
+
+- Run `redis-cli flushall` to remove all the data stored in redis
+- Run `redis-cli shutdown` to stop the redis server 
